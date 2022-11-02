@@ -1,29 +1,30 @@
 # BBC Air-Quality Test Solution
+This code base is my developed solution to the bbc-airquality task.
+The built code base can be found in the dist folder after running the build commands.
 
 ## Getting started
 
-To start the project follow the following sstepss:
+To start the project follow the following steps:
 
-1. Clone the repository or download the code.
+1. Clone the repository or download the code. Open your terminal where the code is located and run:
 
 ```bash
-#2.
 npm install
 ```
 
-2. To start the code in your browser.
+2. To start the code in your browser run:
 
 ```bash
 npm start
 ```
-Open [http://localhost:3010](http://localhost:3010) with your browser to see the result.
+_Open [http://localhost:3010](http://localhost:3010) with your browser to see the result._
 
 3. To build a reusable dist folder.
 
 ```bash
 npm run build
 ```
-If you are using powershell as your terminal of choice then run thiss instead.
+If you are using powershell as your terminal of choice then run this instead.
 
 ```bash
 npm run build-powershell
