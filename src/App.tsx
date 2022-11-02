@@ -1,11 +1,11 @@
+// Import modules and data.
 import React, { useEffect, useState } from 'react'
 import engData from './assets/data/english.json';
 import indData from './assets/data/hindi.json';
 
-// import logo from './assets/img/bbc_logo.svg';
-
 export default function App() {
 
+    // State hooks.
     const [lang, setLang] = useState<string>('e')
     const [data, setData] = useState<any>({})
     const [content, setContent] = useState<any>([])
@@ -13,14 +13,18 @@ export default function App() {
     const [inputVal, setInput] = useState<any>([])
     const [city, setCity] = useState<any>({ name: "", tname: "City Name", cigg: "", tcigg: "Cigarette\n equivalent", aqi: "", taqi: "Air pollution" })
 
+    // Life-cycle hooks.
+    // for determing selectedd language andd data to display.
     useEffect(() => {
-        console.log(lang)
 
+        // Specify data types.
         let newEData: any = engData;
         let newIData: any = indData;
 
+        // Deetermining language for data.
         let selected = lang == "i" ? newIData : newEData
 
+        // CleanUp Json keys, by reemoving all occurrence of '-' and replacing with '_'
         let actData = Object.keys(selected).map((e: string, i: any) => {
             let t = e.replace('-', '_');
             return ({
@@ -30,11 +34,12 @@ export default function App() {
             return { ...obj, ...item }
         })
 
+        // Creating array for article paragraphs
         let content = Object.keys(actData).filter((e: string, i: any) => {
             if (e.includes('p_')) return actData[`${e}`]
         }).map((e: any) => actData[`${e}`])
 
-
+        // Creating array for pollution data
         let pollution = Object.keys(actData).filter((e: string, i: any) => {
             if (e.includes('compare_tabs_1_city_')) return actData[`${e}`]
         }).map((e: any) => {
@@ -57,13 +62,14 @@ export default function App() {
             }
         }
 
-        console.log(finalPoll)
+        // Updating all data values
         setContent(content)
         setData(actData)
         setPollutionData(finalPoll)
 
     }, [lang, engData, indData])
 
+    //handler function to select city
     const setCityFunc = (value: string) => {
         setCity({ ...city, ...pollutionData.filter((e: any) => e.name === value)[0] })
     }
@@ -93,7 +99,7 @@ export default function App() {
 
             </section>
             <section className='hero'>
-                
+
                 <div className='category'>
                     <a href={`${data?.article_info_1_category_url || ""}`} target="_blank" rel="noopener noreferrer">
                         <span>{data?.article_info_1_category || ""}</span> News
@@ -136,7 +142,7 @@ export default function App() {
                             }
                         </datalist>
                         <em className='total_cities'>{(data?.total_cities_1_value || "") + " cities."}</em>
-                        {/* inputVal */}
+                        
                     </div>
                     <div className='card_container'>
                         <div className='cards'>

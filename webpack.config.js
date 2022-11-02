@@ -7,6 +7,17 @@ module.exports = {
   mode: prod ? 'production' : 'development',
   entry: './src/index.tsx',
   output: {
+    environment: {
+      arrowFunction: false,
+      bigIntLiteral: false,
+      const: false,
+      destructuring: false,
+      dynamicImport: false,
+      forOf: false,
+      module: false,
+      optionalChaining: false,
+      templateLiteral: false,
+    },
     path: __dirname + '/dist/',
   },
   module: {
