@@ -1,0 +1,145 @@
+body {
+    font-family: ReithSans, Helvetica, Arial, freesans, sans-serif;
+    //Helvetica, Verdana, Arial, freesans, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    width: 100vw;
+    justify-items: stretch;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    gap: 50px;
+    padding: 1.5rem 2.5rem;
+    padding-left: 10%;
+    padding-right: 10%;
+    align-items: space-around;
+
+    .head {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .lang {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            h5 {
+                font-weight: 500;
+            }
+
+            select {
+                border: none;
+                padding: 0;
+                font-weight: 500;
+                max-height: 20px;
+
+                option {
+                    font-weight: 500;
+                    text-size-adjust: 25%;
+                }
+            }
+        }
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .category {
+            a {
+                text-decoration: none;
+                color: black;
+                font-weight: 200;
+
+                span {
+                    font-weight: 500;
+                    font-size: large;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2.25em;
+            font-weight: 300;
+            max-width: 75%;
+            padding-bottom: 25px;
+        }
+
+        .hero_img {
+            display: flex;
+            justify-content: center;
+
+            img {
+                max-width: 99%;
+                margin: auto;
+                display: block;
+            }
+        }
+
+        .byline {
+            display: flex;
+            text-align: center;
+
+            .author {
+                font-style: italic;
+                font-weight: 900;
+                padding-right: 15px;
+                font-size: 0.95em;
+            }
+
+            .date {
+                font-weight: 200;
+                font-size: 0.95em;
+            }
+        }
+
+    }
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+
+        .article {
+            max-width: 75%;
+            text-align: justify;
+            p {
+                font-size: 17px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .main {
+        .body {
+            .article {
+                max-width: 100%;
+                text-align: justify;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:650px) {
+
+    .main {
+        padding: 1.5rem 1.5rem;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+    }
+}
