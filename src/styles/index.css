@@ -105,9 +105,44 @@ body {
 .main .body .article p {
   font-size: 17px;
 }
+.main .body .article_2 {
+  max-width: 75%;
+  text-align: justify;
+}
+.main .body .article_2 p {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.505);
+}
+.main .body .city_check {
+  max-width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .body .city_check .card_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 25px;
+}
+.main .body .city_check .card_container .cards {
+  border-radius: 10px;
+  border: 1.2px solid rgba(25, 25, 25, 0.5725490196);
+  box-shadow: 3px 3px rgba(74, 74, 74, 0.0666666667);
+  padding: 20px;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
 
 @media screen and (max-width: 1000px) {
   .main .body .article {
+    max-width: 100%;
+    text-align: justify;
+  }
+  .main .body .article_2 {
     max-width: 100%;
     text-align: justify;
   }
@@ -117,5 +152,9 @@ body {
     padding: 1.5rem 1.5rem;
     padding-left: 2.5%;
     padding-right: 2.5%;
+  }
+  .main .body .city_check .card_container {
+    display: flex;
+    flex-direction: column;
   }
 }/*# sourceMappingURL=index.css.map */
