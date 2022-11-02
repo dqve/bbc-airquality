@@ -11,7 +11,7 @@ export default function App() {
     const [content, setContent] = useState<any>([])
     const [pollutionData, setPollutionData] = useState<any>([])
     const [inputVal, setInput] = useState<any>([])
-    const [city, setCity] = useState<any>({ name: "", cigg: "", aqi: "" })
+    const [city, setCity] = useState<any>({ name: "", tname: "City Name", cigg: "", tcigg: "Cigarette\n equivalent", aqi: "", taqi: "Air pollution" })
 
     useEffect(() => {
         console.log(lang)
@@ -65,7 +65,7 @@ export default function App() {
     }, [lang, engData, indData])
 
     const setCityFunc = (value: string) => {
-        setCity(pollutionData.filter((e: any) => e.name === value)[0] || city)
+        setCity({ ...city, ...pollutionData.filter((e: any) => e.name === value)[0] })
     }
 
     return (
@@ -122,9 +122,8 @@ export default function App() {
                 </div>
                 <div className='city_check'>
                     <div className='select_city'>
-                        <label htmlFor="selectCity"></label>
-
-                        <input type="text" list="data" onChange={(e) => setCityFunc(e.target.value)} />
+                        <p className='city_header'>{data?.compare_tabs_1_title || ""}</p>
+                        <input type="text" list="data" onChange={(e) => setCityFunc(e.target.value)} placeholder={`Enter city name and select from dropdown`} />
                         <datalist id="data">
                             {
                                 pollutionData.length < 1 ? null :
@@ -133,20 +132,27 @@ export default function App() {
                                     )))
                             }
                         </datalist>
+                        <em className='total_cities'>{(data?.total_cities_1_value || "") + " cities."}</em>
                         {/* inputVal */}
                     </div>
                     <div className='card_container'>
                         <div className='cards'>
-                            <p>{city.name}</p>
+                            <span className='title'>{city.tname}</span>
+                            <p>{city.name || city.tname}</p>
                         </div>
                         <div className='cards'>
-                            <p>{city.cigg}</p>
+                            <span className='title'>{city.taqi}</span>
+                            <p>{city.aqi || city.taqi}</p>
                         </div>
                         <div className='cards'>
-                            <p>{city.aqi}</p>
+                            <span className='title'>{city.tcigg}</span>
+                            <p>{city.cigg || city.tcigg}</p>
                         </div>
                     </div>
+                    <p className='method'>{data?.compare_tabs_1_method || ""}</p>
                 </div>
+
+
                 <div className='article_2'>
                     {
                         content.length < 1 ? null :
